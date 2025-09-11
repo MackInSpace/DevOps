@@ -17,3 +17,13 @@
                 if nums[i] == nums[j]:
                     count += 1
         return count"""
+
+#Problem 1733
+"""class Solution:
+    def minimumTeachings(self, n: int, languages: List[List[int]], friendships: List[List[int]]) -> int:"""
+        # need an answer still
+
+#Problem 58
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        return len(s.split()[-1])
