@@ -118,7 +118,7 @@ if __name__ == "__main__":
          return True"""
 
 #Problem 27
-class Solution:
+"""class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
         k = 0
 
@@ -127,4 +127,13 @@ class Solution:
                 nums[k] = nums[i]
                 k += 1
 
-        return k
+        return k"""
+
+#Problem 48
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        """Don not return anything, modify matrix in-place instead."""
+        matrix.reverse()
+        for i in range(len(matrix)):
+            for j in range(i):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
