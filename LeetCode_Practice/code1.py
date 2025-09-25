@@ -130,10 +130,24 @@ if __name__ == "__main__":
         return k"""
 
 #Problem 48
-class Solution:
+"""class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
-        """Don not return anything, modify matrix in-place instead."""
         matrix.reverse()
         for i in range(len(matrix)):
             for j in range(i):
-                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]"""
+
+#Problem 121
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        min_price = float('inf')
+        max_profit = 0
+
+        for price in prices:
+            
+            if price < min_price:
+                min_price = price
+            elif price - min_price > max_profit:
+                max_profit = price - min_price
+
+        return max_profit
