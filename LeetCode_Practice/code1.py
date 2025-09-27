@@ -138,7 +138,7 @@ if __name__ == "__main__":
                 matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]"""
 
 #Problem 121
-class Solution:
+"""class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         min_price = float('inf')
         max_profit = 0
@@ -150,4 +150,15 @@ class Solution:
             elif price - min_price > max_profit:
                 max_profit = price - min_price
 
-        return max_profit
+        return max_profit"""
+
+#Problem 812
+class Solution: 
+    def largestTriangleArea(self, points: List[List[int]]) -> float:
+        result = 0.0
+        for i in range(len(points)):
+            for j in range(i + 1, len(points)):
+                for k in range(j + 1, len(points)):
+                    area = 0.5 * abs(points[i][0] * (points[j][1] - points[k][1]) + points[j][0] * (points[k][1] - points[i][1]) + points[k][0] * (points[i][1] - points[j][1]))
+                    result = max(result, area)
+        return result
