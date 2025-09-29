@@ -153,7 +153,7 @@ if __name__ == "__main__":
         return max_profit"""
 
 #Problem 812
-class Solution: 
+"""class Solution: 
     def largestTriangleArea(self, points: List[List[int]]) -> float:
         result = 0.0
         for i in range(len(points)):
@@ -161,4 +161,22 @@ class Solution:
                 for k in range(j + 1, len(points)):
                     area = 0.5 * abs(points[i][0] * (points[j][1] - points[k][1]) + points[j][0] * (points[k][1] - points[i][1]) + points[k][0] * (points[i][1] - points[j][1]))
                     result = max(result, area)
-        return result
+        return result"""
+
+#Problem 11
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        left = 0
+        right = len(height) - 1
+        max_area = 0
+
+        while left < right:
+            area = min(height[left], height[right]) * (right - left)
+            max_area = max(max_area, area)
+
+            if height[left] < height[right]:
+                left += 1
+            else:
+                right -= 1
+
+        return max_area
