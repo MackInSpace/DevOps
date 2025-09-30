@@ -7,3 +7,6 @@ advanced_pytest
 basic_pytest
 python_unittest
 workflows_demo
+django_cityloc_pkg
+github_packaging
+hello_django
