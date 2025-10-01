@@ -182,7 +182,7 @@ if __name__ == "__main__":
         return max_area"""
 
 #Problem 41
-class Solution:
+"""class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
         n = len(nums)
         for i in range(n):
@@ -191,4 +191,20 @@ class Solution:
         for i in range(n):
             if nums[i] != i + 1:
                 return i + 1
-        return n + 1
+        return n + 1"""
+
+#Problem 174
+class Solution:
+    def calculateMinimumHP(self, dungeon: List [List[int]]) -> int:
+        m = len(dungeon)
+        n = len(dungeon[0])
+        dp = [[0] * n for _ in range(m)]
+        dp[m - 1][n - 1] = max(1, 1 - dungeon[m - 1][n - 1])
+        for i in range(n - 2, -1, -1):
+            dp[m - 1][i] = max(1, dp[m - 1][i + 1] - dungeon[m - 1][i])
+        for i in range(m - 2, -1, -1):
+            dp[i][n - 1] = max(1, dp[i + 1][n - 1] - dungeon[i][n - 1])
+        for i in range(m - 2, -1, -1):
+            for j in range(n - 2, -1, -1):
+                dp[i][j] = max(1, min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j])
+        return dp[0][0]
