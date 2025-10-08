@@ -194,7 +194,7 @@ if __name__ == "__main__":
         return n + 1"""
 
 #Problem 174
-class Solution:
+"""class Solution:
     def calculateMinimumHP(self, dungeon: List [List[int]]) -> int:
         m = len(dungeon)
         n = len(dungeon[0])
@@ -207,4 +207,12 @@ class Solution:
         for i in range(m - 2, -1, -1):
             for j in range(n - 2, -1, -1):
                 dp[i][j] = max(1, min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j])
-        return dp[0][0]
+        return dp[0][0]"""
+
+#Problem 1
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
