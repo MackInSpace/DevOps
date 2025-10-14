@@ -223,7 +223,7 @@ if __name__ == "__main__":
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-class Solution:
+"""class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         dummy = ListNode()
         curr = dummy
@@ -237,4 +237,15 @@ class Solution:
             curr = curr.next
             l1 = l1.next if l1 else None
             l2 = l2.next if l2 else None
-        return dummy.next
+        return dummy.next"""
+
+#Problem 4
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        merged = nums1 + nums2
+        merged.sort()
+        n = len(merged)
+        if n % 2 == 0:
+            return (merged[n // 2] + merged[n // 2 - 1]) / 2
+        else:
+            return merged[n // 2]
