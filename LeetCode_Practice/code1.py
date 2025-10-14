@@ -240,7 +240,7 @@ if __name__ == "__main__":
         return dummy.next"""
 
 #Problem 4
-class Solution:
+"""class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         merged = nums1 + nums2
         merged.sort()
@@ -248,4 +248,29 @@ class Solution:
         if n % 2 == 0:
             return (merged[n // 2] + merged[n // 2 - 1]) / 2
         else:
-            return merged[n // 2]
+            return merged[n // 2]"""
+
+#Problem 5
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        n = len(s)
+        if n < 2:
+            return s
+
+        dp = [[False] * n for _ in range(n)]
+        start = 0
+        max_len = 1
+        for i in range(n):
+            dp[i][i] = True
+        for length in range(2, n + 1):  
+            for i in range(n - length + 1):
+                j = i + length - 1  
+
+                if s[i] == s[j]:
+                    if length == 2 or dp[i + 1][j - 1]:
+                        dp[i][j] = True
+                        if length > max_len:
+                            max_len = length
+                            start = i
+
+        return s[start:start + max_len]
