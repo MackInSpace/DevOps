@@ -305,7 +305,7 @@ if __name__ == "__main__":
         return rev"""
 
 #Problem 8
-class Solution:
+"""class Solution:
     def myAtoi(self, s: str) -> int:
         s = s.strip()
         if not s:
@@ -326,4 +326,16 @@ class Solution:
                 return INT_MAX
             if sign * num < INT_MIN:
                 return INT_MIN
-        return sign * num
+        return sign * num"""
+
+
+#Problem 9
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x < 0 or (x % 10 == 0 and x != 0):
+            return False
+        rev = 0
+        while x > rev:
+            rev = rev * 10 + x % 10
+            x //= 10
+        return x == rev or x == rev // 10
