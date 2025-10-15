@@ -292,7 +292,7 @@ if __name__ == "__main__":
         return ''.join(rows)"""
 
 #Problem 7
-class Solution: 
+"""class Solution: 
     def reverse(self, x: int) -> int:
         INT_MIN, INT_MAX = -2**31, 2**31 - 1
         if x < 0:
@@ -302,4 +302,28 @@ class Solution:
 
         if rev < INT_MIN or rev > INT_MAX:
             return 0
-        return rev
+        return rev"""
+
+#Problem 8
+class Solution:
+    def myAtoi(self, s: str) -> int:
+        s = s.strip()
+        if not s:
+            return 0
+        sign = 1
+        if s[0] == '-':
+            sign = -1
+            s = s[1:]
+        elif s[0] == '+':
+            s = s[1:]
+        num = 0
+        INT_MIN, INT_MAX = -2**31, 2**31 - 1
+        for ch in s:
+            if not ch.isdigit():
+                break
+            num = num * 10 + (ord(ch) - ord('0'))
+            if sign * num > INT_MAX:
+                return INT_MAX
+            if sign * num < INT_MIN:
+                return INT_MIN
+        return sign * num
