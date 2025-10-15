@@ -276,7 +276,7 @@ if __name__ == "__main__":
         return s[start:start + max_len]"""
 
 #Problem 6
-class Solution:
+"""class Solution:
     def convert(self, s: str, numRows: int) -> str:
         if numRows == 1:
             return s
@@ -289,4 +289,17 @@ class Solution:
             elif index == numRows - 1:
                 step = -1
             index += step
-        return ''.join(rows)
+        return ''.join(rows)"""
+
+#Problem 7
+class Solution: 
+    def reverse(self, x: int) -> int:
+        INT_MIN, INT_MAX = -2**31, 2**31 - 1
+        if x < 0:
+            rev = -int(str(abs(x))[::-1])
+        else:
+            rev = int(str(x)[::-1])
+
+        if rev < INT_MIN or rev > INT_MAX:
+            return 0
+        return rev
